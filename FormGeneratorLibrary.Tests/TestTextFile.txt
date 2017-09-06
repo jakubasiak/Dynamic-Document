@@ -1,0 +1,11 @@
+﻿{{name}}             Textfield Aproksymacja jednego bloku tekstowego na podstawie nazwy
+{{block:name}} Tekstblock o nazwie name
+{{date:name}}   Tworzey data picker             
+
+Budowanie dokumentu
+
+{{options:name#lorem ipsum#}} - Combo box lub dropdown lub Chck box o nazwie "name" który wstawia text "lorem ipsum" lub ""
+
+{{options:name#lorem #ipsum#}}
+
+{{options:name#lorem fdsfsdf sdfdsfsdfsdpre bfbvvcvbbvbc rgdfgdfgdfdgd fdgdf.  gdsgdfgd gdfgdg gggg #ipsum fsdhfsldhg hfksfksjflsdfgls psfps#}}

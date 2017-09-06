@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormGeneratorLibrary", "FormGeneratorLibrary\FormGeneratorLibrary.csproj", "{93F5F4A0-7E08-4CB1-966F-6785B5DE3593}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicDocument", "DynamicDocument\DynamicDocument.csproj", "{FB747929-E818-4E87-849D-9AD66770646E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93F5F4A0-7E08-4CB1-966F-6785B5DE3593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93F5F4A0-7E08-4CB1-966F-6785B5DE3593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93F5F4A0-7E08-4CB1-966F-6785B5DE3593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93F5F4A0-7E08-4CB1-966F-6785B5DE3593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB747929-E818-4E87-849D-9AD66770646E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB747929-E818-4E87-849D-9AD66770646E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB747929-E818-4E87-849D-9AD66770646E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB747929-E818-4E87-849D-9AD66770646E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

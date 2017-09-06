@@ -1,0 +1,78 @@
+﻿<Page x:Name="clod" x:Class="DynamicDocument.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:local="clr-namespace:DynamicDocument"
+      xmlns:viewModels="clr-namespace:DynamicDocument.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Select template"
+      FontSize="15">
+    <Page.Resources>
+        <viewModels:MainPageViewModel x:Key="MainPageViewModel" />
+        <viewModels:FilePathToImageConverter x:Key="FilePathToImageConverter"/>
+        <BitmapImage x:Key="rtf" UriSource="/Resources/rtf.png"/>
+        <BitmapImage x:Key="text" UriSource="/Resources/text.png"/>
+        <BitmapImage x:Key="doc" UriSource="/Resources/doc.png"/>
+        <BitmapImage x:Key="odt" UriSource="/Resources/odt.png"/>
+        <BitmapImage x:Key="exe" UriSource="/Resources/exe.png"/>
+    </Page.Resources>
+    <Page.DataContext>
+        <viewModels:MainPageViewModel/>
+    </Page.DataContext>
+
+    <Grid VerticalAlignment="Stretch" Margin="20">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Unloaded">
+                <i:InvokeCommandAction Command="{Binding WindowClosing}" CommandParameter="{Binding}" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Margin="15,0">
+            <GroupBox Header="Document tools">
+                <Button Margin="5,15,5,5" Command="{Binding CreateDocumentCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}" Height="23" VerticalAlignment="Top">Create Document</Button>
+            </GroupBox>
+            <GroupBox Header="Template tools">
+                <StackPanel>
+                    <Button Margin="5,15" Command="{Binding AddTemplateCommand}">Add Template</Button>
+                    <Button Margin="5,15" Command="{Binding ShowTemplateCommand}">Show Template</Button>
+                    <Button Margin="5,15" Command="{Binding RemoveTemplateCommand}">Remove Template</Button>
+                    <Button Margin="5,15" Command="{Binding DeleteTemplateCommand}">Delete Template</Button>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Help">
+                <StackPanel>
+                    <Button Margin="5,15" Command="{Binding ShowHelpFileCommand}">Help</Button>
+                    <Button Margin="5,15" Command="{Binding AboutCommand}">Abaut</Button>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <DockPanel Grid.Column="1" Margin="15,0">
+            <ListBox DockPanel.Dock="Top"                     
+                     ItemsSource="{Binding Path=Files}"
+                     SelectedIndex="{Binding FilesSelectedIndex, Mode=TwoWay}">
+                <ListBox.InputBindings>
+                    <KeyBinding Key="Delete" Command="{Binding DeleteTemplateCommand}"/>
+                </ListBox.InputBindings>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{Binding Path=FileExtension, Converter={StaticResource FilePathToImageConverter}}" Width="32" Height="32" />
+                                <StackPanel Margin="10">
+                                    <TextBlock FontWeight="Bold" Text="{Binding Path=FileName}"/>
+                                    <TextBlock FontSize="12" Text="{Binding Path=FilePath}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+    </Grid>
+</Page>
